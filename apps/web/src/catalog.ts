@@ -32,12 +32,15 @@ export type PageDef = {
   keywords?: string[];
 };
 
+/** A page as authored inside a group — the group id is injected when flattening. */
+export type PageInput = Omit<PageDef, 'group'>;
+
 export type GroupDef = {
   id: GroupId;
   label: string;
   /** Short glyph used in the shell. */
   glyph: string;
-  pages: PageDef[];
+  pages: PageInput[];
 };
 
 export const GROUPS: GroupDef[] = [
@@ -159,7 +162,9 @@ export const GROUPS: GroupDef[] = [
   },
 ];
 
-export const PAGES: PageDef[] = GROUPS.flatMap((group) => group.pages);
+export const PAGES: PageDef[] = GROUPS.flatMap((group) =>
+  group.pages.map((page) => ({ ...page, group: group.id })),
+);
 
 const BY_PATH = new Map(PAGES.map((page) => [page.path, page]));
 const BY_ID = new Map(PAGES.map((page) => [page.id, page]));

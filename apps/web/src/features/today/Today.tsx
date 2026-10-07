@@ -20,7 +20,6 @@ import {
   lastNDays,
   mealTotals,
   onDate,
-  todayKey,
   uid,
   useDemo,
   weekdayLetter,

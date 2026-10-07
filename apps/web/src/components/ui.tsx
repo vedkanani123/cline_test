@@ -201,7 +201,7 @@ export function BarChart({ data, unit }: { data: { label: string; value: number 
           <span className="bars__label">{point.label}</span>
           <span className="bars__value">
             {point.value}
-            {unit ? unit : ''}
+            {unit ?? ''}
           </span>
         </div>
       ))}
