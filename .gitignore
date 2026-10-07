@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+.npm/
+
+# Build output
+dist/
+build/
+*.tsbuildinfo
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Environment — the demo must never contain secrets
+.env
+.env.*
+!.env.example
+
+# Local scratch
+/tmp/

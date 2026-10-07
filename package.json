@@ -1,0 +1,21 @@
+{
+  "name": "nurture",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Nurture — a personal AI health coach. Frontend concept demo (no backend yet).",
+  "workspaces": [
+    "apps/web"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace apps/web",
+    "build": "npm run build --workspace apps/web",
+    "lint": "npm run lint --workspace apps/web",
+    "typecheck": "npm run typecheck --workspace apps/web",
+    "preview": "npm run preview --workspace apps/web",
+    "verify": "npm run lint && npm run build"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
