@@ -52,7 +52,7 @@ discipline with its own depth.
 | Sleep/recovery | Track sleep and readiness as trends, not measurements; connect to a wearable where available. |
 | Health-data hub | Read and write health records across devices and apps with per-field permission and duplicate handling. |
 
-"## App profiles
+## App profiles
 
 **MyFitnessPal** — the long-standing reference food diary, built on a very large user-contributed
 food database with barcode scanning and macro tracking. Suits people who want the widest food
@@ -112,4 +112,189 @@ depth.
 challenges. Suits endurance athletes who value a shared feed and group challenges. Trade-off: the
 social comparison surface is its strength and its risk; it is not a nutrition or recovery tool.
 
-<!--MORE-->"
+**Garmin Connect** — the companion platform for Garmin wearables, aggregating training, sleep,
+body and activity data across many sports. Suits multi-sport users already in the Garmin
+ecosystem. Trade-off: the best features assume Garmin hardware; some analytics sit behind a
+subscription.
+
+**Samsung Health** — the pre-installed health app on Samsung devices, covering steps, sleep,
+some body-composition hardware and food logging. Suits Galaxy owners who want a zero-install
+hub. Trade-off: depth and device support vary by model and region.
+
+**Apple Health / Fitness** — the iOS hub (HealthKit) plus the Activity rings and workouts app,
+tightly bound to Apple Watch. Suits iPhone/Watch owners. Trade-off: it is a hub, not a coach;
+nutrition logging is thin and largely delegated to third parties.
+
+**Google Health and Health Connect** — the Android data layer. **Google Fit has been superseded
+by Health Connect and the newer Google Health app for Android.** Health Connect is the on-device
+API that apps read and write records through, with per-field permissions; the Google Health app
+is the consumer-facing surface. A new integration should be **designed around Health
+Connect/Google Health rather than Google Fit**, and the exact current Google branding and API
+status should be re-verified before implementation.
+
+**WHOOP** — a screenless wearable with a subscription model, centred on recovery, strain and
+sleep coaching. Suits people who want recovery-first guidance. Trade-off: subscription hardware,
+and its own app is the primary surface rather than an open hub.
+
+**Oura** — a smart ring focused on sleep, readiness and recovery, with a companion app and a
+subscription for the fuller feature set. Suits people who prefer a ring to a watch. Trade-off:
+less about active training load than a sports watch.
+
+**Noom** — a psychology-and-coaching-led weight-management programme with food logging and human
+coaches, sold as a subscription. Suits people who want behavioural support over raw numbers.
+Trade-off: coaching is human-mediated and the model is opinionated.
+
+**WeightWatchers (WW)** — a points-based programme with meetings and digital plans, now also
+offering clinical weight-management services. Suits people who value a structured, social
+programme. Trade-off: the points abstraction can obscure actual nutrition detail.
+
+**HealthifyMe** — an India-first platform with an AI coach, human coaching tiers and a food
+database tuned to Indian cuisine. Suits users who need regional food coverage. Trade-off:
+regional depth and coaching tiers vary by market.
+
+**AI-logging alternatives:** **Foodvisor** (photo recognition with nutrition output),
+**SnapCalorie** (photo estimation with depth sensing and human-in-the-loop review for greater
+accuracy), and **BitePal** (AI-first food logging). All three share the category's core
+constraint: an estimate is a draft to be confirmed, not a measurement.
+
+## Feature comparison matrix
+
+**Legend:** ● strong / core competence · ◐ partial / secondary · ○ not a primary feature.
+Assessments are qualitative and reflect each product's positioning, not a measured test; re-check
+before quoting them in public material.
+
+| App | Food diary | AI/photo | Cals/macros | Micros | Recipes/plans | Hydration | Gym | Coached | Outdoor | Body | Sleep/rec. | Hub |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| MyFitnessPal | ● | ◐ | ● | ◐ | ● | ◐ | ○ | ○ | ◐ | ◐ | ○ | ◐ |
+| Cronometer | ● | ○ | ● | ● | ◐ | ◐ | ○ | ○ | ○ | ◐ | ○ | ◐ |
+| MacroFactor | ● | ◐ | ● | ◐ | ◐ | ○ | ○ | ○ | ○ | ● | ○ | ○ |
+| Lifesum | ● | ○ | ● | ○ | ● | ◐ | ○ | ◐ | ○ | ◐ | ○ | ○ |
+| YAZIO | ● | ◐ | ● | ◐ | ● | ◐ | ○ | ○ | ○ | ◐ | ○ | ○ |
+| Fitia | ● | ○ | ● | ◐ | ● | ◐ | ○ | ◐ | ○ | ◐ | ○ | ○ |
+| Cal AI | ◐ | ● | ● | ○ | ○ | ○ | ○ | ○ | ○ | ○ | ○ | ○ |
+| Hevy | ○ | ○ | ○ | ○ | ○ | ○ | ● | ◐ | ○ | ◐ | ○ | ○ |
+| Strong | ○ | ○ | ○ | ○ | ○ | ○ | ● | ○ | ○ | ◐ | ○ | ○ |
+| Fitbod | ○ | ○ | ○ | ○ | ○ | ○ | ● | ● | ○ | ◐ | ◐ | ○ |
+| Freeletics | ○ | ○ | ◐ | ○ | ○ | ○ | ◐ | ● | ◐ | ◐ | ○ | ○ |
+| Strava | ○ | ○ | ○ | ○ | ○ | ○ | ○ | ○ | ● | ◐ | ◐ | ◐ |
+| Garmin Connect | ○ | ○ | ◐ | ○ | ○ | ◐ | ◐ | ◐ | ● | ● | ● | ● |
+| Samsung Health | ◐ | ○ | ◐ | ○ | ○ | ◐ | ◐ | ◐ | ◐ | ◐ | ◐ | ◐ |
+| Apple Health/Fitness | ◐ | ○ | ◐ | ◐ | ○ | ◐ | ◐ | ◐ | ◐ | ◐ | ◐ | ● |
+| Google Health/Connect | ◐ | ○ | ◐ | ○ | ○ | ◐ | ◐ | ○ | ◐ | ◐ | ◐ | ● |
+| WHOOP | ○ | ○ | ○ | ○ | ○ | ○ | ◐ | ◐ | ◐ | ◐ | ● | ◐ |
+| Oura | ○ | ○ | ○ | ○ | ○ | ○ | ○ | ○ | ◐ | ◐ | ● | ◐ |
+| Noom | ● | ◐ | ● | ○ | ◐ | ◐ | ○ | ◐ | ◐ | ● | ○ | ○ |
+| WeightWatchers | ● | ◐ | ◐ | ○ | ● | ◐ | ○ | ◐ | ◐ | ● | ○ | ○ |
+| HealthifyMe | ● | ◐ | ● | ◐ | ● | ◐ | ◐ | ● | ◐ | ◐ | ◐ | ◐ |
+
+## Health platforms and wearables
+
+The "hub" question is really a phone-ecosystem question, because the platform layer is set by the
+operating system before any app is chosen.
+
+| Layer | Best fit | What it can collect | Main limits |
+|---|---|---|---|
+| Apple Health / HealthKit | iPhone + Apple Watch | Steps, workouts, sleep, heart rate, body metrics, nutrition (from connected apps) | iOS only; nutrition is thin without third-party apps; watch-centric features need an Apple Watch. |
+| Android Health Connect + Google Health | Android | Steps, workouts, sleep, heart rate, body metrics, nutrition records written by apps | Android only; coverage depends on which apps write records; **Google Fit is superseded** — design new integrations around Health Connect/Google Health. |
+| Garmin Connect | Garmin wearables | Multi-sport training, sleep, body and performance data | Best with Garmin hardware; some analytics are subscription-gated. |
+| Samsung Health | Samsung Galaxy | Steps, sleep, body composition on supported hardware, food logging | Device- and region-dependent. |
+| WHOOP / Oura | Their own hardware | Recovery, strain, sleep, readiness | Closed ecosystems; primarily their own app surfaces. |
+
+The recurring limits are **device** (some features need specific hardware), **region** (data and
+app availability differ by country), **permission** (each field is granted separately, and users
+can revoke), and **one-way sync** (some platforms only read, or only write, or sync with a delay,
+so the same event can arrive twice). Any integration must state, per field, whether Nurture reads,
+writes or both, and must handle the duplicate records that one-way and delayed sync create.
+
+## What users seem to use most
+
+Across the category, the same themes recur in what people describe doing:
+
+- **Daily food logging and checking what is left.** The core loop is logging a meal and seeing
+  the remaining energy and protein. This is the habit most apps are built around.
+- **Workout logging and progress history.** Lifters and runners value the record: what was lifted,
+  what was run, and whether it is moving.
+- **Meal plans and recipes, often paywalled.** Planning content is a common reason people upgrade,
+  and a common source of frustration when it sits behind a subscription.
+- **Low-friction check-ins: water, steps, weight, sleep.** These are quick taps that feel like
+  progress without much effort.
+- **AI photo logging as a speed shortcut.** Its value depends entirely on whether the estimate is
+  editable and trustworthy; users accept an estimate they can correct, and distrust one they
+  cannot.
+
+One important caveat: **store review counts are not unique active users, and they cannot prove
+feature-usage shares.** A large review count reflects cumulative installs and prompts, not how
+many people use a feature today. Any claim about "most-used" features must be sourced from
+first-party product analytics, not store metrics.
+
+## Common complaints across the category
+
+| Complaint | What is really happening |
+|---|---|
+| Inaccurate portions | Servings and portion sizes are guesses; databases store per-100g or per-item values that do not match the plate. |
+| Duplicate food entries | Crowd-sourced databases hold many near-identical foods, so the same item is logged twice or the wrong variant is picked. |
+| Paywalls and auto-renewing trials | Core features are moved behind a subscription, and free trials convert automatically. |
+| Navigation changes | Redesigns move familiar controls and break muscle memory for daily users. |
+| Sync failures | One-way, delayed or permission-limited sync means entries appear late, twice or not at all. |
+| The effort of sustained logging | Logging is effective but tedious; the burden is the single biggest reason people stop. |
+
+## Advantages and disadvantages
+
+| Advantages | Disadvantages |
+|---|---|
+| Immediate feedback on food and activity | Effort of consistent logging is high and easily abandoned |
+| Large food databases speed up entry | Crowd-sourced data is inconsistent and error-prone |
+| AI photo logging reduces friction | Estimates can be wrong and are easily over-trusted |
+| Training logs support real progression | Specialists are siloed; one app rarely does everything |
+| Wearables make recovery visible | Closed ecosystems and one-way sync fragment the data |
+| Plans and recipes remove decisions | Much of the good content is paywalled |
+| Social features motivate some people | Comparison can harm others; leaderboards distort behaviour |
+
+## Recommended setups by person
+
+| Person | Sensible combination | Why |
+|---|---|---|
+| Wants one app with the most features | MyFitnessPal or YAZIO + Apple Health/Health Connect | Broad diary plus a neutral hub; accept that training depth is limited. |
+| Muscle gain and protein | MacroFactor or Cronometer + Hevy/Strong | Precise protein and energy tracking plus a real lifting log. |
+| Sustainable weight loss | MacroFactor, Noom or WW + a wearable | Behavioural support and honest trends rather than a strict deficit. |
+| Vitamins, minerals or restricted diets | Cronometer (+ a clinician where indicated) | Best micronutrient depth; still not a clinical assessment. |
+| Phone/watch owners | Apple Health/Fitness or Samsung Health as hub + one specialist app | The OS decides the hub; add depth where the hub is thin. |
+| Runners and cyclists | Strava + Garmin Connect (or Apple/Health Connect) | Best outdoor tracking plus device data, with nutrition handled separately. |
+
+## A safe practical approach to "perfect" meals and exercise
+
+No app can deliver a "perfect" diet or routine, and chasing one is where tracking turns harmful.
+A durable approach: aim for a **pattern**, not a score — mostly whole foods, enough protein and
+fibre, enough water, regular movement you can sustain, and sleep you protect. Treat any single
+meal or missed session as information, not a verdict. Where a product shows a number, treat it as
+an estimate to be corrected, not a measurement.
+
+If tracking starts to cause anxiety or compulsive checking, the honest guidance is to reduce it,
+not push through: log less often, hide or disable calorie and weight figures, use a
+less-number-focused mode, take a break from the diary, and talk to a clinician or registered
+dietitian — especially if eating, weight or exercise thoughts are becoming intrusive. Products in
+this category should make that off-ramp easy to find, not buried.
+
+## Privacy, subscription and setup checklist
+
+- [ ] **Check regional pricing** in your own store region before subscribing.
+- [ ] **Read the free-trial and renewal terms** — note the exact cancellation window and whether
+      renewal is automatic.
+- [ ] **Read the privacy label** (for example the App Store privacy summary) and the retention
+      policy.
+- [ ] **Confirm database coverage for your own cuisine** before committing; breadth varies a lot
+      by region.
+- [ ] **Confirm export and deletion rights** — you should be able to take your data out and delete
+      it fully.
+- [ ] **Connect one data type at a time** and watch for duplicate records before adding more.
+
+## Method and limitations
+
+This review is a **desk survey of vendor-documented positioning**, not a hands-on benchmark or an
+independently measured comparison. It makes no quantitative claims and reproduces no ratings,
+counts or prices, because those change constantly and must be re-verified against the live store
+listing before publication. Product names, corporate ownership and platform strategies change;
+the MyFitnessPal/Cal AI announcement and the Google Fit-to-Health Connect transition should both
+be re-checked against primary sources before any public use. Where this document describes a
+feature as strong or partial, that is a qualitative judgement about positioning and should be
+confirmed against current product documentation.

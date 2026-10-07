@@ -85,6 +85,21 @@ docs/FRONTEND_CONTRACT.md How every screen is built
 PROJECT_IMPLEMENTATION_PLAN.md  The build plan and current status
 ```
 
+## Documentation
+
+| Document | What it covers |
+|---|---|
+| [Implementation plan](./PROJECT_IMPLEMENTATION_PLAN.md) | Architecture, phases, what is done, known gaps, next tasks |
+| [Frontend contract](./docs/FRONTEND_CONTRACT.md) | The interface every screen is built against |
+| [Product blueprint](./docs/PRODUCT_BLUEPRINT.md) | Full specification: onboarding, coaching engine, safety, architecture, roadmap |
+| [Life companion strategy](./docs/LIFE_COMPANION_STRATEGY.md) | How Nurture earns a place in someone's daily life |
+| [App landscape review](./docs/research/BEST_HEALTH_FITNESS_NUTRITION_APPS.md) | Commercial health, fitness and nutrition apps compared |
+| [Open-source survey](./docs/research/OPEN_SOURCE_HEALTH_FITNESS_PROJECTS.md) | Self-hostable and open-source projects, with licence caveats |
+
+The two research documents deliberately omit store ratings, review counts, download numbers and
+prices: those change constantly and must be re-verified against live listings. They describe durable
+facts — feature sets, positioning and licensing — instead.
+
 ## Safety boundaries
 
 Nurture is an **adult wellness coach**, not a medical service.
