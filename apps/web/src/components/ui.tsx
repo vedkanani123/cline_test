@@ -193,8 +193,9 @@ export function BarChart({ data, unit }: { data: { label: string; value: number 
   const max = Math.max(1, ...data.map((point) => point.value));
   return (
     <div className="bars" role="img" aria-label={`Bar chart with ${data.length} points`}>
-      {data.map((point) => (
-        <div key={point.label} className="bars__item">
+      {data.map((point, index) => (
+        // Labels can legitimately repeat (weekday letters), so the index is the stable key.
+        <div key={`${point.label}-${index}`} className="bars__item">
           <div className="bars__track">
             <span className="bars__fill" style={{ height: `${Math.round((point.value / max) * 100)}%` }} />
           </div>
